@@ -16,8 +16,8 @@
 	</scm>
 		
 	<properties>
-		<version.jersey>1.18.1</version.jersey>
-		<version.guice>3.0</version.guice>
+		<version.jersey>2.21</version.jersey>
+		<version.guice>4.0</version.guice>
 		<version.junit>4.10</version.junit>
 		<version.servlet>2.5</version.servlet>
 	</properties>
@@ -33,41 +33,6 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-servlet</artifactId>
-			<version>${version.jersey}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>${version.jersey}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>${version.jersey}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-core</artifactId>
-			<version>${version.jersey}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>${version.jersey}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-multipart</artifactId>
-			<version>${version.jersey}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-guice</artifactId>
-			<version>${version.jersey}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject.extensions</groupId>
@@ -95,10 +60,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>19.0-rc1</version>
-			<type>bundle</type>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.21</version>
 		</dependency>
 	</dependencies>
 	<build>

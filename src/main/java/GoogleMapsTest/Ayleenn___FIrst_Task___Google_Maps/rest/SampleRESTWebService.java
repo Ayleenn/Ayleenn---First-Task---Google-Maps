@@ -6,8 +6,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
-import com.sun.jersey.spi.resource.Singleton;
 
 @Singleton
 @Path("hello")
