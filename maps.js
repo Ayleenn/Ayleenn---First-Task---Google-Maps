@@ -20,8 +20,7 @@ var cities = [ {
 var sampleApp = angular.module('mapsApp', []);
 var i = 0;
 
-sampleApp
-		.controller(
+sampleApp.controller(
 				'textInputCtrl',
 				[
 						'$scope',
@@ -33,10 +32,11 @@ sampleApp
 
 							$scope.submit = function() {
 								if ($scope.address) {
-									sampleApp
-											.controller(
-													'MapCtrl',
-													function($scope) {
+								}
+							}
+						}]);
+
+sampleApp.controller('MapCtrl',function($scope) {
 														var mapOptions = {
 															zoom : 14,
 															center : new google.maps.LatLng(
@@ -126,8 +126,4 @@ sampleApp
 														}
 
 													});
-									$scope.address = '';
-								}
-							}
-
-						} ]);
+									
