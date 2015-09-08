@@ -1,0 +1,27 @@
+
+
+  <div ng-controller="AddressListController" style="padding: 50px">
+    <p>
+      <input type="text" placeholder="Search..." ng-model="searchFor" size="20"/>
+    </p>
+
+    <div class="album panel panel-primary" ng-repeat="album in addressList | filter: { realAddress: searchFor } | orderBy : 'code' ">
+      <div class="panel-heading"> {{ album.realAddress }} 
+        <!-- <div class="title" >{{ album.date }}</div>  -->
+      </div>
+      <div class="panel-body">
+        <div>
+          {{ album.description }}
+        </div>
+        <div>
+          <!-- <img src="media/{{album_name}}/thumb/{{photo.filename}}"/> -->
+          <img src="img/{{album.code}}.jpg" height="130" width="230"/>
+
+        </div>  
+      </div>
+    </div>
+
+    <div style="clear: left"></div>
+
+
+  </div>
