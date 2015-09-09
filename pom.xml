@@ -17,8 +17,7 @@
 		
 	<properties>
 		<version.jersey>2.21</version.jersey>
-		<version.guice>4.0</version.guice>
-		<version.junit>4.10</version.junit>
+		<version.junit>4.12</version.junit>
 		<version.servlet>2.5</version.servlet>
 	</properties>
 
@@ -46,7 +45,7 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
-			<version>2.21</version>
+			<version>${version.jersey}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -61,7 +60,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.3</version>
 				<configuration>
 					<!-- or whatever version you use -->
 					<source>1.8</source>

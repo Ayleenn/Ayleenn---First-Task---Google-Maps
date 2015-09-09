@@ -13,6 +13,7 @@ public class SampleRESTWebService {
 	@GET
 	@Produces("application/json")
 	public Response helloWorld(){
+		helloWorldString = "changed";
 		return Response.ok(helloWorldString+"\n").build();
 	}
 }
