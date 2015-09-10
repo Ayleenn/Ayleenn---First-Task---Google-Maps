@@ -23,16 +23,6 @@
 
 	<dependencies>
 		<!-- Jersey 1.18.1 -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${version.servlet}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
-		</dependency>
 		<!-- Gson: Java to Json conversion -->
 		<!-- Joda time -->
 		<!-- Junit -->
