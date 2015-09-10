@@ -1,10 +1,13 @@
 package nl.info.mercury.sample.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Location {
 
 	private String description;
 	private float longitude;
-	private float lattitude;
+	private float latitude;
 	
 	public String getDescription() {
 		return description;
@@ -22,13 +25,17 @@ public class Location {
 		this.longitude = longitude;
 	}
 
-	public float getLattitude() {
-		return lattitude;
+	public float getLatitude() {
+		return latitude;
 	}
 
-	public void setLattitude(float lattitude) {
-		this.lattitude = lattitude;
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
 	}
 
-	public Location(String desc, float lon, float lat)
+	public Location(String desc, float lon, float lat) {
+		description = desc;
+		longitude = lon;
+		latitude = lat;
+	}
 }
