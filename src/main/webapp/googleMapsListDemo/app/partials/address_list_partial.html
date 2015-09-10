@@ -1,0 +1,38 @@
+
+
+  <div ng-controller="AddressListController" style="padding: 50px">
+    <p>
+      <input name="location-filter" class="form-control" type="search" placeholder="Search..." ng-model="searchFor" size="20"/>
+      <!-- <input name="brewery-filter" class="form-control" type="search" ng-model="breweryFilter" placeholder="filter locations" /> -->
+    </p>
+
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <div ng-repeat="album in addressList | filter: { realAddress: searchFor }">
+          <ui-gmap-markers models="filteredMarkers" coords="'self'" icon="'icon'">
+          </ui-gmap-markers>
+        </div>
+    </ui-gmap-google-map>
+
+    <p>
+    </p>
+
+    <div class="album panel panel-primary" ng-repeat="album in addressList | filter: { realAddress: searchFor } | orderBy : 'code' ">
+      <div class="panel-heading"> {{ album.realAddress }} 
+        <!-- <div class="title" >{{ album.date }}</div>  -->
+      </div>
+      <div class="panel-body">
+        <div>
+          {{ album.description }}
+        </div>
+        <div>
+          <!-- <img src="media/{{album_name}}/thumb/{{photo.filename}}"/> -->
+          <img src="img/{{album.code}}.jpg" height="130" width="230"/>
+
+        </div>  
+      </div>
+    </div>
+
+    <div style="clear: left"></div>
+
+
+  </div>
