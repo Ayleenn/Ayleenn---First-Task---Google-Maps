@@ -1,0 +1,97 @@
+<!-- Placeholder for the Google Map -->
+<div id="map" style="height: 512px;">
+	<noscript>
+		<!-- http:// code.google.com/apis/maps/documentation/staticmaps/ -->
+		<img src="https://maps.googleapis.com/maps/api/js" />
+	</noscript>
+</div>
+
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+
+var myOptions = {
+		  zoom:14,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP,
+	    };
+var map = new google.maps.Map(document.getElementById("map"), myOptions);
+var iw=new google.maps.InfoWindow({content:""});
+
+// Define the address we want to map.
+var addresses = ["Sint Antoniesbreestraat 16 1011 HB Amsterdam","Herengracht 597 1017 CE Amsterdam","Donau 21, 1186 KL Amstelveen","Nieuwmarkt 18, 1012 CR Amsterdam","Hirschgebouw, Leidseplein 25, 1017 PS Amsterdam"];
+
+google.maps.event.addDomListener(window, "load", initialize);
+
+function initialize() {
+
+var bounds = new google.maps.LatLngBounds();
+var geocoder = new google.maps.Geocoder();
+
+for (var x = 0; x < addresses.length; x++) {
+var ade = addresses[x]; 
+
+ geocoder.geocode( { "address": addresses[x] }, function(results, status) {
+
+  // If the Geocoding was successful
+  if (status == google.maps.GeocoderStatus.OK) {
+
+    // Add a marker at the address.
+    var marker = new google.maps.Marker({
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+      position: results[0].geometry.location
+    });
+
+    map.setCenter(results[0].geometry.location);
+    
+    infoWindow(marker,map,results[0].formatted_address)
+    
+	 var p = results[0].geometry.location; 
+     bounds.extend(new google.maps.LatLng(p.lat, p.lng));
+ // map.fitBounds(bounds);
+	 
+  } 
+  
+  else {
+    try {
+      console.error("Geocode was not successful for the following reason: " + status);
+    } catch(e) {}
+  }
+            });
+    }
+// Override our map zoom level once our fitBounds function runs (Make sure it
+// only runs once)
+var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+    this.setZoom(14);
+    google.maps.event.removeListener(boundsListener);
+});
+}
+
+function infoWindow(marker, map, address) {
+
+google.maps.event.addListener(marker, 'click', function() {
+	if(iw.content != ""){
+	    iw.close();
+	}
+    	var html = "<div><p>" + address + "</p></div>";
+        iw = new google.maps.InfoWindow({
+          content: html,
+          map:map,
+          maxWidth: 250
+        });
+        iw.open(map, marker);
+});
+
+google.maps.event.addListener(marker, 'mouseover', function() {
+    	  iw.setContent(html); 
+    	  iw.open(map, marker); 
+});
+
+// google.maps.event.addListener(marker, 'mouseout', function() {
+// iw.close();
+// });
+
+}
+
+</script>
