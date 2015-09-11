@@ -22,10 +22,6 @@
 	</properties>
 
 	<dependencies>
-		<!-- Jersey 1.18.1 -->
-		<!-- Gson: Java to Json conversion -->
-		<!-- Joda time -->
-		<!-- Junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -37,6 +33,10 @@
 			<artifactId>jersey-container-servlet</artifactId>
 			<version>${version.jersey}</version>
 		</dependency>
+		<dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

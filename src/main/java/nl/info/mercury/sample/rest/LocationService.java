@@ -18,9 +18,9 @@ public class LocationService {
 	private LocationRepository repo = new LocationRepositoryStub();
 
 	@GET
-	@Path("/location")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_JSON)
 	public Location getLocation() {
+		System.out.println("Location: "+repo.findLocation().getDescription());
 		return repo.findLocation();	
 	}
 
