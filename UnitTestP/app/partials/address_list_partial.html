@@ -1,0 +1,23 @@
+
+
+  <div ng-controller="AddressListController" style="padding: 50px">
+    <p>
+      <input name="location-filter" ng-show="false" class="form-control" type="search" placeholder="Search..." ng-model="searchFor" size="20"/>
+    </p>
+
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+          <ui-gmap-markers models="filteredMarkers" coords="'self'" icon="'icon'">
+          </ui-gmap-markers>
+    </ui-gmap-google-map>
+
+    <p>
+    </p>
+
+    <ul id="myAddressList" class="list-group" ng-repeat="album in addressList | filter: { realAddress: searchFor } | orderBy : 'code' ">
+      <li id="thisIsAnId" class="list-group-item">{{ album.realAddress }} </li>
+    </ul>
+
+    <div style="clear: left"></div>
+
+
+  </div>
